@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2F9DD2AC2162BF2500B94879 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 2F9DD2AB2162BF2500B94879 /* main.c */; };
+		2F9DD2B52162BF4C00B94879 /* dog.c in Sources */ = {isa = PBXBuildFile; fileRef = 2F9DD2B42162BF4C00B94879 /* dog.c */; };
+		2F9DD2B82162C3BB00B94879 /* helper.c in Sources */ = {isa = PBXBuildFile; fileRef = 2F9DD2B72162C3BB00B94879 /* helper.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,10 @@
 /* Begin PBXFileReference section */
 		2F9DD2A82162BF2500B94879 /* nantrial */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = nantrial; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F9DD2AB2162BF2500B94879 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		2F9DD2B32162BF4C00B94879 /* dog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dog.h; sourceTree = "<group>"; };
+		2F9DD2B42162BF4C00B94879 /* dog.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = dog.c; path = includes/dog.c; sourceTree = "<group>"; };
+		2F9DD2B62162C3BB00B94879 /* helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = helper.h; sourceTree = "<group>"; };
+		2F9DD2B72162C3BB00B94879 /* helper.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = helper.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +63,21 @@
 		2F9DD2AA2162BF2500B94879 /* nantrial */ = {
 			isa = PBXGroup;
 			children = (
+				2F9DD2B22162BF3300B94879 /* includes */,
 				2F9DD2AB2162BF2500B94879 /* main.c */,
+				2F9DD2B42162BF4C00B94879 /* dog.c */,
+				2F9DD2B72162C3BB00B94879 /* helper.c */,
 			);
 			path = nantrial;
+			sourceTree = "<group>";
+		};
+		2F9DD2B22162BF3300B94879 /* includes */ = {
+			isa = PBXGroup;
+			children = (
+				2F9DD2B62162C3BB00B94879 /* helper.h */,
+				2F9DD2B32162BF4C00B94879 /* dog.h */,
+			);
+			path = includes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +136,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F9DD2B52162BF4C00B94879 /* dog.c in Sources */,
+				2F9DD2B82162C3BB00B94879 /* helper.c in Sources */,
 				2F9DD2AC2162BF2500B94879 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
