@@ -1,4 +1,5 @@
 #include <node_api.h>
+#include <string.h>
 #include <stdlib.h>
 #include "dog.h"
 
@@ -11,7 +12,7 @@ napi_value SayHello(napi_env env, napi_callback_info info) {
   status = napi_get_cb_info(env, info, &argc, argv, NULL, NULL);
 
   char * str = malloc(sizeof(char) * 1024);
-  char * yay = "yay"; 
+  char * yay = "我愛你"; 
   size_t len;
   status = napi_get_value_string_utf8(env, argv[0], str, 1024, &len);
 
@@ -19,12 +20,13 @@ napi_value SayHello(napi_env env, napi_callback_info info) {
     napi_throw_error(env, NULL, "Invalid argument pass to method SayHello");
   }
 
-  char * newStr = malloc(sizeof(char) * 1024 + 3);
+  char * newStr = malloc(strlen(str) + strlen(yay) + 1);
   strcpy(newStr, str);
-  strcpy(newStr, yay);
+  strcat(newStr, yay);
 
   napi_value strResult;
-  status = napi_create_string_utf8(env, newStr, 1027, &strResult);
+  size_t buf = strlen(str) + strlen(yay) + 1;
+  status = napi_create_string_utf8(env, newStr, buf, &strResult);
 
   if (status != napi_ok) {
     napi_throw_error(env, NULL, "Error while creating new type");

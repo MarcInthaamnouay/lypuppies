@@ -1,0 +1,22 @@
+{
+  "name": "lypuppies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "binding.js",
+  "scripts": {
+    "test": "node test/test.js",
+    "build": "node-gyp build",
+    "install": "node-gyp rebuild"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcInthaamnouay/lypuppies.git"
+  },
+  "author": "marc intha-amnouay",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MarcInthaamnouay/lypuppies/issues"
+  },
+  "homepage": "https://github.com/MarcInthaamnouay/lypuppies#readme",
+  "dependencies": {}
+}
