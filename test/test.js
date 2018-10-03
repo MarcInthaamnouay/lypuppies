@@ -1,5 +1,4 @@
 const lib = require('../build/Release/lypuppies');
 
-const text = 'hello';
-const t = lib.SayHello(text);
-console.warn(t);
+const dog = lib.GenerateUniquePuppy("mei mei", "chienLoup");
+console.warn(dog);
