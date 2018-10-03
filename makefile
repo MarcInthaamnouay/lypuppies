@@ -13,7 +13,6 @@ CFLAG_LIB = -O3 -I$(INC_DIR)
 L_SRC = $(filter-out lypuppies/main.c, $(wildcard $(SRC_DIR)/*.c))
 L_HEADERS = $(wildcard $(INC_DIR)/*.h)
 OBJECTS := $(patsubst %.c, $(OBJ_DIR)/%.o, $(L_SRC))
-$(info VAR="$(L_SRC)")
 # Rules to make the lib (based on my lymui lib..)
 
 all: clean lib

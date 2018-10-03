@@ -16,7 +16,7 @@
  */
 typedef enum Type {
     chihuaha,
-    chienLoup
+    dogWolf
 } Type;
 
 /**

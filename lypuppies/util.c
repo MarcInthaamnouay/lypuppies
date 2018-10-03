@@ -21,8 +21,8 @@ void generateRandomName(char * s, uint8_t len) {
 }
 
 Type getTypeFromStr(char * t) {
-    if (strcasecmp(t, "chienLoup")) {
-        return chienLoup;
+    if (!strcmp(t, "dogWolf")) {
+        return dogWolf;
     }
     
     return chihuaha;
@@ -33,10 +33,10 @@ char * getStrTypeFromType(Type t) {
         case chihuaha:
             return "chihuahua";
             break;
-        case chienLoup:
-            return "chienLoup";
+        case dogWolf:
+            return "dogWolf";
             break;
         default:
-            return "chienLoup";
+            return "dogWolf";
     }
 }

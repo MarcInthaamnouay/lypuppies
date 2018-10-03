@@ -90,10 +90,11 @@ napi_value GenerateUniquePuppy(napi_env env, napi_callback_info info) {
   Type t = getTypeFromStr(type);
   Dog * dog = generateUniquePuppy(name, t);
   
+  napi_value doggie = getDogJSObj(env, dog); 
   free(name);
   free(type);
 
-  return getDogJSObj(env, dog); 
+  return doggie;
 }
 
 napi_value Init(napi_env env, napi_value exports) {
