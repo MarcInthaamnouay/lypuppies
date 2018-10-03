@@ -4,7 +4,7 @@
   "description": "",
   "main": "binding.js",
   "scripts": {
-    "test": "node test/test.js",
+    "test": "./node_modules/mocha/bin/mocha test/dog.test.js",
     "build": "node-gyp build",
     "install": "node-gyp rebuild"
   },
@@ -18,5 +18,9 @@
     "url": "https://github.com/MarcInthaamnouay/lypuppies/issues"
   },
   "homepage": "https://github.com/MarcInthaamnouay/lypuppies#readme",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  }
 }

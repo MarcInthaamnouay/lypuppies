@@ -49,7 +49,7 @@ uint8_t getDogLifeMedianExpectancy(Dog * dog) {
     switch (dog->type) {
         case chihuaha:
             return 15;
-        case chienLoup:
+        case dogWolf:
             return 14;
         default:
             return 14;
