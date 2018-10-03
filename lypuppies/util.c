@@ -13,7 +13,6 @@
 
 void generateRandomName(char * s, uint8_t len) {
     const char alphanum[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-    printf("%lu", sizeof(alphanum));
     for (uint8_t i = 0; i < len; i++) {
         s[i] = alphanum[rand() % (sizeof(alphanum) - 1)];
     }

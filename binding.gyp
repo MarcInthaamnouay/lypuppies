@@ -7,8 +7,11 @@
         "lypuppies/binding/puppy.c"
       ],
       "include_dirs": [
-        "lypuppies/includes",
+        "bin/includes",
       ],
+      "libraries": [
+        "<(module_root_dir)/bin/liblypuppies.a"
+      ]
     }
   ]
 }
