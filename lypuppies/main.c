@@ -15,7 +15,7 @@ int main(int argc, const char * argv[]) {
     printf("Hello, World!\n");
     Dog * dog = generateUniquePuppy("Haaa", chihuaha);
     puppyBark(dog->name, dog->age);
-    uint8_t age = getDogLifeMedianExpectancy(dog);
+    uint8_t age = getDogLifeMedianExpectancy(chihuaha);
     printf("This dog expectancy life should be %i \n", age);
     return 0;
 }
