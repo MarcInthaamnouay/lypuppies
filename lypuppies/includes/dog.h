@@ -39,14 +39,17 @@ Dog * generateUniquePuppy(char * name, Type t);
 
 /**
  * @brief a puppy will bark something
+ * @param name char *
+ * @param age uint8_t
  */
-void puppyBark(Dog * dog);
+void puppyBark(char * name, uint8_t age);
 
 /**
  * @brief get the median life remaining of the dog based on it's type
- * @param dog pointer Dog
+ * @param t Type
+ * @return uint8_t
  */
-uint8_t getDogLifeMedianExpectancy(Dog * dog);
+uint8_t getDogLifeMedianExpectancy(Type t);
 
 /**
  * @brief free Puppy desallocate the dog

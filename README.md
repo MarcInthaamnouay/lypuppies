@@ -1,4 +1,4 @@
-# Lypuppies (WIP)
+# Lypuppies
 
 Just a small test project which goal is to try binding C to NodeJS using Node experimental N-API
 
@@ -9,12 +9,13 @@ which are later used by n-api in order to expose the methods of the lypuppies li
 
 # Bindings
 
-The binding is using n-api some good tutorials are available on medium...
+The binding is using n-api. There are good starter tutorial on medium as well as some n-api usage example on the node repository. You can also check out my code (not the best C code you will ever see though...).
 
 # JS method exposed
 
 - GenerateUniquePuppy
-- WIP
+- PuppyBark
+- GetPuppyExpectedLife
 
 # Install & Usage
 

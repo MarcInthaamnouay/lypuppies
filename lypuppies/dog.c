@@ -33,20 +33,16 @@ Dog * generateUniquePuppy(char * name, Type t) {
     return dog;
 }
 
-void puppyBark(Dog * dog) {
-    if (dog == NULL) {
+void puppyBark(char * name, uint8_t age) {
+    if (name == NULL) {
         printf("Wouaf Wouaf I don't have a name !");
     }
     
-    printf("Wouaf Wouaf I am %s and I am %i", dog->name, dog->age);
+    printf("Wouaf Wouaf I am %s and I am %i", name, age);
 }
 
-uint8_t getDogLifeMedianExpectancy(Dog * dog) {
-    if (dog == NULL) {
-        return 0;
-    }
-    
-    switch (dog->type) {
+uint8_t getDogLifeMedianExpectancy(Type t) {
+    switch (t) {
         case chihuaha:
             return 15;
         case dogWolf:

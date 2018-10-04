@@ -21,11 +21,11 @@ void generateRandomName(char * s, uint8_t len) {
 }
 
 Type getTypeFromStr(char * t) {
-    if (!strcmp(t, "dogWolf")) {
-        return dogWolf;
+    if (!strcmp(t, "chihuahua")) {
+        return chihuaha;
     }
     
-    return chihuaha;
+    return dogWolf;
 }
 
 char * getStrTypeFromType(Type t) {
