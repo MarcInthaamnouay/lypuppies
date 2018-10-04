@@ -1,10 +1,36 @@
 #include <node_api.h>
 #include <string.h>
 #include <stdlib.h>
+#include "puppy.h"
 #include "util.h"
 #include "dog.h"
 
 #define DECLARE_NAPI_METHOD(name, func) { name, 0, func, 0, 0, 0, napi_default, 0 }
+
+static void assignJSObj(napi_value * jsObj, PuppyType t, char * type, void * ptr, napi_env env) {
+  napi_status status;
+  napi_value value;
+
+  if (t == number) {
+    uint8_t v = *(uint8_t *) ptr;
+    status = napi_create_uint32(env, v, &value);
+  } else if (t == string) {
+    char * s = (char *) ptr;
+    status = napi_create_string_utf8(env, s, strlen(s), &value);
+  } else {
+    return;
+  }
+  
+  if (status != napi_ok) {
+    napi_throw_error(env, NULL, "Unable to create type");
+  }
+
+  status = napi_set_named_property(env, *jsObj, type, value);
+
+  if (status != napi_ok) {
+    napi_throw_error(env, NULL, "Unable to assign value");
+  }
+}
 
 static napi_value getDogJSObj(napi_env env, Dog * dog) {
   napi_status status;
@@ -16,43 +42,12 @@ static napi_value getDogJSObj(napi_env env, Dog * dog) {
     return jsDogObj;
   }
 
-  napi_value name;
-  napi_value type;
-  napi_value alias;
-  napi_value age;
-
-  // @TODO simplify this...
   char * strDogType = getStrTypeFromType(dog->type);
-  status = napi_create_string_utf8(env, strDogType, strlen(strDogType), &type);
-  if (status != napi_ok) napi_throw_error(env, NULL, "Unable to create type str");
 
-  status = napi_create_string_utf8(env, dog->name, strlen(dog->name), &name);
-  if (status != napi_ok) napi_throw_error(env, NULL, "Unable to create name str");
-  
-  status = napi_create_string_utf8(env, dog->alias, strlen(dog->alias), &alias);
-  if (status != napi_ok) napi_throw_error(env, NULL, "Unable to create alias str");
-  
-  status = napi_create_uint32(env, dog->age, &age);
-  if (status != napi_ok) napi_throw_error(env, NULL, "Unable to create age uint");
-  
-  status = napi_set_named_property(env, jsDogObj, "type", type);
-  if (status != napi_ok)
-    napi_throw_error(env, NULL, "Unable to set dog's type");
-
-  status = napi_set_named_property(env, jsDogObj, "name", name);
-  if (status != napi_ok) {
-    napi_throw_error(env, NULL, "Unable to set dog's name");
-  }
-
-  status = napi_set_named_property(env, jsDogObj, "alias", alias);
-  if (status != napi_ok) {
-    napi_throw_error(env, NULL, "Unable to set dog's alias");
-  }
-
-  status = napi_set_named_property(env, jsDogObj, "age", age);
-  if (status != napi_ok) {
-    napi_throw_error(env, NULL, "Unable to set dog's age");
-  }
+  assignJSObj(&jsDogObj, string, "type", strDogType, env);
+  assignJSObj(&jsDogObj, string, "name", dog->name, env);
+  assignJSObj(&jsDogObj, string, "alias", dog->alias, env);
+  assignJSObj(&jsDogObj, number, "age", &dog->age, env);
 
   free(dog);
 
